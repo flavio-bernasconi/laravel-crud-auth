@@ -9,8 +9,8 @@ Route::get('/home', function(){
 Route::get('/', 'CatController@index')->name('home');
 Route::get('/cat/{id}', 'CatAuthController@show')->name('showCat');
 
-Route::get('/cat/add', 'CatAuthController@create')->name('createCat');
-// Route::post('/cat/store', 'CatAuthController@store')->name('storeCat');
+Route::get('/add', 'CatAuthController@create')->name('createCat');
+Route::post('/store', 'CatAuthController@store')->name('storeCat');
 
 Route::get('/cat/edit/{id}', 'CatAuthController@edit')->name('editCat');
 Route::post('/cat/store/{id}', 'CatAuthController@update')->name('updateCat');

@@ -33,8 +33,8 @@ class CatAuthController extends Controller
      */
     public function create()
     {
+      return view('createCatPage');
 
-        return view('createCatPage');
     }
 
     /**
@@ -45,7 +45,16 @@ class CatAuthController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $validatedData = $request -> validate([
+        'name'=> 'required',
+        'race'=> 'required',
+        'cat_rfid'=> 'required'
+      ]);
+
+
+      Cat::create($validatedData);
+
+      return redirect('/');
     }
 
     /**
